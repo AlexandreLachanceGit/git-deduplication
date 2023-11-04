@@ -36,6 +36,8 @@ for i, repo in enumerate(data):
         "name": repo['name'],
         "full_name": repo['full_name'],
         "description": repo['description'],
+        "created_at": repo['created_at'],
+        "updated_at": repo['updated_at'],
 
         "allow_forking": repo['allow_forking'],
         "forks_count": repo['forks_count'],
