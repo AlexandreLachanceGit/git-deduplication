@@ -1,0 +1,131 @@
+@inproceedings{10.1145/3379597.3387496,
+author = {Spinellis, Diomidis and Kotti, Zoe and Mockus, Audris},
+title = {A Dataset for GitHub Repository Deduplication},
+year = {2020},
+isbn = {9781450375177},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3379597.3387496},
+doi = {10.1145/3379597.3387496},
+abstract = {GitHub projects can be easily replicated through the site's fork process or through a Git clone-push sequence. This is a problem for empirical software engineering, because it can lead to skewed results or mistrained machine learning models. We provide a dataset of 10.6 million GitHub projects that are copies of others, and link each record with the project's ultimate parent. The ultimate parents were derived from a ranking along six metrics. The related projects were calculated as the connected components of an 18.2 million node and 12 million edge denoised graph created by directing edges to ultimate parents. The graph was created by filtering out more than 30 hand-picked and 2.3 million pattern-matched clumping projects. Projects that introduced unwanted clumping were identified by repeatedly visualizing shortest path distances between unrelated important projects. Our dataset identified 30 thousand duplicate projects in an existing popular reference dataset of 1.8 million projects. An evaluation of our dataset against another created independently with different methods found a significant overlap, but also differences attributed to the operational definition of what projects are considered as related.},
+booktitle = {Proceedings of the 17th International Conference on Mining Software Repositories},
+pages = {523–527},
+numpages = {5},
+keywords = {project clone, dataset, fork, GitHub, Deduplication},
+location = {Seoul, Republic of Korea},
+series = {MSR '20}
+}
+
+@article{leechen,
+    author = {Ting-Po Lee, Wen-Chien Chen},
+    title = {Applying Link Prediction for Repository Recommendation on GitHub},
+}
+
+@INPROCEEDINGS{7780152,
+  author={Feist, Michael D. and Santos, Eddie Antonio and Watts, Ian and Hindle, Abram},
+  booktitle={2016 IEEE Working Conference on Software Visualization (VISSOFT)}, 
+  title={Visualizing Project Evolution through Abstract Syntax Tree Analysis}, 
+  year={2016},
+  volume={},
+  number={},
+  pages={11-20},
+  doi={10.1109/VISSOFT.2016.6}
+}
+
+@inproceedings{10.1145/3238147.3238169,
+author = {Kovalenko, Vladimir and Palomba, Fabio and Bacchelli, Alberto},
+title = {Mining File Histories: Should We Consider Branches?},
+year = {2018},
+isbn = {9781450359375},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3238147.3238169},
+doi = {10.1145/3238147.3238169},
+abstract = {Modern distributed version control systems, such as Git, offer support for branching — the possibility to develop parts of software outside the master trunk. Consideration of the repository structure in Mining Software Repository (MSR) studies requires a thorough approach to mining, but there is no well-documented, widespread methodology regarding the handling of merge commits and branches. Moreover, there is still a lack of knowledge of the extent to which considering branches during MSR studies impacts the results of the studies. In this study, we set out to evaluate the importance of proper handling of branches when calculating file modification histories. We analyze over 1,400 Git repositories of four open source ecosystems and compute modification histories for over two million files, using two different algorithms. One algorithm only follows the first parent of each commit when traversing the repository, the other returns the full modification history of a file across all branches. We show that the two algorithms consistently deliver different results, but the scale of the difference varies across projects and ecosystems. Further, we evaluate the importance of accurate mining of file histories by comparing the performance of common techniques that rely on file modification history — reviewer recommendation, change recommendation, and defect prediction — for two algorithms of file history retrieval. We find that considering full file histories leads to an increase in the techniques’ performance that is rather modest.},
+booktitle = {Proceedings of the 33rd ACM/IEEE International Conference on Automated Software Engineering},
+pages = {202–213},
+numpages = {12},
+keywords = {Branches, Mining Software Repositories, Version Control Systems},
+location = {Montpellier, France},
+series = {ASE '18}
+}
+
+@ARTICLE{10251061,
+  author={Kabakus, Abdullah Talha},
+  journal={Journal of Web Engineering}, 
+  title={GitHubNet: Understanding the Characteristics of GitHub Network}, 
+  year={2020},
+  volume={19},
+  number={5-6},
+  pages={557-574},
+  doi={10.13052/jwe1540-9589.19561}}
+
+@INPROCEEDINGS{8668034,
+  author={Zhao, Yanjie and Wang, Haoyu and Ma, Lei and Liu, Yuxin and Li, Li and Grundy, John},
+  booktitle={2019 IEEE 26th International Conference on Software Analysis, Evolution and Reengineering (SANER)}, 
+  title={Knowledge Graphing Git Repositories: A Preliminary Study}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={599-603},
+  doi={10.1109/SANER.2019.8668034}}
+
+@INPROCEEDINGS{6579457,
+  author={Lee, HaeJun and Seo, Bon-Keun and Seo, Euiseong},
+  booktitle={2013 International Conference on Information Science and Applications (ICISA)}, 
+  title={A Git Source Repository Analysis Tool Based on a Novel Branch-Oriented Approach}, 
+  year={2013},
+  volume={},
+  number={},
+  pages={1-4},
+  doi={10.1109/ICISA.2013.6579457}}
+
+@INPROCEEDINGS{5069475,
+  author={Bird, Christian and Rigby, Peter C. and Barr, Earl T. and Hamilton, David J. and German, Daniel M. and Devanbu, Prem},
+  booktitle={2009 6th IEEE International Working Conference on Mining Software Repositories}, 
+  title={The promises and perils of mining git}, 
+  year={2009},
+  volume={},
+  number={},
+  pages={1-10},
+  doi={10.1109/MSR.2009.5069475}}
+
+@INPROCEEDINGS{8816748,
+  author={Pietri, Antoine and Spinellis, Diomidis and Zacchiroli, Stefano},
+  booktitle={2019 IEEE/ACM 16th International Conference on Mining Software Repositories (MSR)}, 
+  title={The Software Heritage Graph Dataset: Public Software Development Under One Roof}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={138-142},
+  doi={10.1109/MSR.2019.00030}}
+
+@INPROCEEDINGS{9194501,
+  author={Zhang, Yiming and Fan, Yujie and Hou, Shifu and Ye, Yanfang and Xiao, Xusheng and Li, Pan and Shi, Chuan and Zhao, Liang and Xu, Shouhuai},
+  booktitle={2020 IEEE International Conference on Knowledge Graph (ICKG)}, 
+  title={Cyber-guided Deep Neural Network for Malicious Repository Detection in GitHub}, 
+  year={2020},
+  volume={},
+  number={},
+  pages={458-465},
+  doi={10.1109/ICBK50248.2020.00071}}
+
+@INPROCEEDINGS{7314657,
+  author={Luo, Zizhan and Mao, Xiaoguang and Li, Ang},
+  booktitle={2015 Ninth International Conference on Frontier of Computer Science and Technology}, 
+  title={An Exploratory Research of GitHub Based on Graph Model}, 
+  year={2015},
+  volume={},
+  number={},
+  pages={96-103},
+  doi={10.1109/FCST.2015.45}}
+
+@INPROCEEDINGS{7551994,
+  author={Cai, Xuyang and Zhu, Jiangang and Shen, Beijun and Chen, Yuting},
+  booktitle={2016 IEEE 40th Annual Computer Software and Applications Conference (COMPSAC)}, 
+  title={GRETA: Graph-Based Tag Assignment for GitHub Repositories}, 
+  year={2016},
+  volume={1},
+  number={},
+  pages={63-72},
+  doi={10.1109/COMPSAC.2016.124}}
