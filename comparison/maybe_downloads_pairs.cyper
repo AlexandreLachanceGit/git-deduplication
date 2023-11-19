@@ -1,0 +1,7 @@
+MATCH (a:repository), (b:repository)
+WHERE
+()-->(a)
+AND NOT (a)-->()
+AND NOT ()-->(b)
+AND NOT (b)-->()
+RETURN a, b, apoc.text.levenshteinDistance(a.name, b.name) AS levenshteinDistance
