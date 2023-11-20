@@ -4,4 +4,4 @@ WHERE
 AND NOT (a)-->()
 AND NOT ()-->(b)
 AND NOT (b)-->()
-RETURN a, b, apoc.text.levenshteinDistance(a.name, b.name) AS levenshteinDistance
+RETURN a.id AS id1, b.id AS id2, apoc.text.levenshteinDistance(a.name, b.name) AS levenshteinDistance
