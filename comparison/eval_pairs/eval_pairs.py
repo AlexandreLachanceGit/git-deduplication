@@ -25,23 +25,27 @@ def build_tree_at_commit(path, commit_id):
     return build_tree(path)
 
 def build_tree(path):
-    return Tree.from_text("{" + _build_tree(path) + "}")
+    tree = _build_tree(path)
+    return (Tree.from_text("{" + tree[0] + "}"), tree[1])
 
 
 def _build_tree(path):
     output = path.name
+    nb_files = 1
     for entry in path.iterdir():
         current = ""
         if entry.is_symlink():
             continue
         elif entry.is_file():
             current = entry.name
+            nb_files += 1
         elif entry.is_dir() and entry.name != ".git":
             current = _build_tree(entry)
+            nb_files += current[1]
         else:
             continue
-        output += "{" + current + "}"
-    return output
+        output += "{" + current[0] + "}"
+    return (output, nb_files)
 
 def load_repos():
     with open("../../collection/full.json") as f:
@@ -69,7 +73,10 @@ with open("out.csv", mode='w', newline='') as file:
         project_tree = file_trees[pair["id1"]][1]
         potential_match_tree = file_trees[pair["id2"]][0]
 
-        treeDist = distance(project_tree, potential_match_tree)
+        if abs(project_tree[1] - potential_match_tree[1]) < 300:
+            treeDist = distance(project_tree[0], potential_match_tree[0])
+        else:
+            treeDist = None
         levDist = pair["levenshteinDistance"]
 
         if treeDist:
@@ -77,6 +84,6 @@ with open("out.csv", mode='w', newline='') as file:
         else:
             total = None
 
-        writer.writerow([pair["id1"], pair["id2"], treeDist, levDist, total])
+        writer.writerow([pair["id1"], pair["id2"], project_tree[1], potential_match_tree[1], treeDist, levDist, total])
 
         
