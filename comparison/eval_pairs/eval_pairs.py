@@ -21,7 +21,7 @@ def build_trees(path, commit_ids):
 def build_tree_at_commit(path, commit_id):
     os.chdir(path)
     subprocess.run(["git", "checkout", commit_id], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    os.chdir("/home/alex/Documents/University/CAS764/project/comparison/eval_pairs/")
+    os.chdir("../../../../comparison/eval_pairs/")
     return build_tree(path)
 
 def build_tree(path):
