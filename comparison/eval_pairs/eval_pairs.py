@@ -21,7 +21,7 @@ def build_trees(path, commit_ids):
 def build_tree_at_commit(path, commit_id):
     os.chdir(path)
     subprocess.run(["git", "checkout", commit_id], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    os.chdir("/home/alex/Documents/University/CAS764/project/comparison")
+    os.chdir("/home/alex/Documents/University/CAS764/project/comparison/eval_pairs/")
     return build_tree(path)
 
 def build_tree(path):
@@ -44,22 +44,22 @@ def _build_tree(path):
     return output
 
 def load_repos():
-    with open("../collection/full.json") as f:
+    with open("../../collection/full.json") as f:
         repos = json.load(f)
 
     output = {}
     for repo in tqdm(repos, desc="Loading file trees"):
         if repo["forge"] == "github":
-            path = Path(f"../collection/github/repos/{repo['id']}")
+            path = Path(f"../../collection/github/repos/{repo['id']}")
         elif repo["forge"] == "gitlab":
-            path = Path(f"../collection/gitlab/repos/{repo['id']}")
+            path = Path(f"../../collection/gitlab/repos/{repo['id']}")
 
         output[repo["id"]] = build_trees(path, repo["commit_ids"])
     return output
 
 file_trees = load_repos()
 
-with open("./maybe_downloads_pairs.json") as f:
+with open("../maybe_downloads_pairs.json") as f:
     potential_pairs = json.loads(f.read())
 
 
