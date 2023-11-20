@@ -2,6 +2,7 @@ from collections import deque
 from apted import APTED
 from timeout_decorator import timeout
 
+# Glue code taken from the APTED repo
 class Tree(object):
     """Represents a Tree Node"""
 
@@ -45,11 +46,12 @@ class Tree(object):
                 stack[-1] += letter
         return tree_stack[0][0]
 
-@timeout(5)
+@timeout(3)
 def _distance(tree1, tree2):
     apted = APTED(tree1, tree2)
     return apted.compute_edit_distance()
 
+# Return None if computing takes more than 3 seconds
 def distance(tree1, tree2):
     try:
         return _distance(tree1, tree2)
