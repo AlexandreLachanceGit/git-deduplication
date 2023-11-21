@@ -67,7 +67,7 @@ with open("../maybe_downloads_pairs.json") as f:
     potential_pairs = json.loads(f.read())
 
 
-with open("out.csv", mode='w', newline='') as file:
+with open("distance.csv", mode='w', newline='') as file:
     writer = csv.writer(file)
     for pair in tqdm(potential_pairs, desc="Calculating pair distances"):
         project_tree = file_trees[pair["id1"]][1]
