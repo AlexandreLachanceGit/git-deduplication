@@ -1,3 +1,5 @@
+# Took 5h33 minutes to run
+
 from difflib import SequenceMatcher
 import json
 from tqdm import tqdm
