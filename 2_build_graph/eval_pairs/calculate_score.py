@@ -15,7 +15,7 @@ def generate_vis(scores):
     plt.savefig('score_dist.png')
 
 
-with open("../../collection/full.json") as f:
+with open("../../1_collection/full.json") as f:
     repos = json.load(f)
 
 name_lens = {}

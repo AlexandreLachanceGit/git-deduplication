@@ -48,15 +48,15 @@ def _build_tree(path):
     return (output, nb_files)
 
 def load_repos():
-    with open("../../collection/full.json") as f:
+    with open("../../1_collection/full.json") as f:
         repos = json.load(f)
 
     output = {}
     for repo in tqdm(repos, desc="Loading file trees"):
         if repo["forge"] == "github":
-            path = Path(f"../../collection/github/repos/{repo['id']}")
+            path = Path(f"../../1_collection/github/repos/{repo['id']}")
         elif repo["forge"] == "gitlab":
-            path = Path(f"../../collection/gitlab/repos/{repo['id']}")
+            path = Path(f"../../1_collection/gitlab/repos/{repo['id']}")
 
         output[repo["id"]] = build_trees(path, repo["commit_ids"])
     return output
