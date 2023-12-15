@@ -1,4 +1,4 @@
-MATCH (sourceProject)-->(potentialDuplicate)
-RETURN sourceProject, potentialDuplicate
+MATCH (potentialDuplicate)-->(sourceProject)
+RETURN COUNT(*)
 
-// 1467 results
+// 1685 results

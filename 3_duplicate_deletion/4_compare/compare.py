@@ -6,6 +6,7 @@ from tqdm import tqdm
 import csv
 import os
 import subprocess
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 with open('../../1_collection/full.json') as f:
     repos = json.load(f)
@@ -70,15 +71,26 @@ def compare_projects(project_id_1, project_id_2):
 
     return compare_directories(dir_1, dir_2)
 
+def compare_and_write(pair):
+    id1, id2 = pair['id1'], pair['id2']
+    score = compare_projects(id1, id2)
+    # print("Done", pair, flush=True)
+    return id1, id2, score
 
 def compare_all():
     with open("../3_reduced_potential_pairs.json", 'r') as potential_pairs_file:
         potential_pairs = json.load(potential_pairs_file)
+
     with open("scores.csv", mode='w', newline='') as scores_file:
         writer = csv.writer(scores_file)
-        for pair in tqdm(potential_pairs):
-            score = compare_projects(pair['id1'], pair['id2'])
-            writer.writerow([pair['id1'], pair['id2'], score])
 
+        with ProcessPoolExecutor() as executor, tqdm(total=len(potential_pairs)) as pbar:
+            futures = [executor.submit(compare_and_write, pair) for pair in potential_pairs]
+
+            for future in as_completed(futures):
+                result = future.result()
+                writer.writerow(result)
+                scores_file.flush()
+                pbar.update(1)
 
 compare_all()
