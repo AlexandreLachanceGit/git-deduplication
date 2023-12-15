@@ -1,0 +1,14 @@
+CALL gds.graph.project(
+  'forksGraph',
+  'repository',
+  {
+    FORKED: {
+      orientation: 'REVERSE'
+    }
+  }
+);
+
+CALL gds.degree.stream('forksGraph', {orientation: 'NATURAL'}) 
+YIELD nodeId, score
+RETURN gds.util.asNode(nodeId).full_name AS full_name, score AS forks
+ORDER BY forks DESC, full_name ASC
