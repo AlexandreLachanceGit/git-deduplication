@@ -1,4 +1,5 @@
 import time
+import os
 import json
 import requests
 import sys
@@ -13,7 +14,7 @@ with open("basic.json") as f:
 
 i = 0
 
-headers = {'Authorization': 'token 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'}
+headers = {'Authorization': 'token ' + os.environ.get('GITHUB_TOKEN')}
 
 for repo in data:
     i += 1

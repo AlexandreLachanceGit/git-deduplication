@@ -3,3 +3,4 @@ repos/
 sources/
 env/
 __pycache__/
+*.env

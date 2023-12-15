@@ -8,7 +8,7 @@ def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
 def get_commit_ids(repo_id):
-    os.chdir(f"repos/{repo['id']}")
+    os.chdir(f"repos/{repo_id}")
 
     result = subprocess.run(["git", "log", "--pretty=oneline"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output = result.stdout.decode('utf-8')
@@ -21,13 +21,7 @@ def get_commit_ids(repo_id):
     os.chdir("../..")
     return commit_ids
 
-new_data = []
-
-with open("more.json") as f:
-    data = json.load(f)
-
-for i, repo in enumerate(data):
-    eprint(i, repo["full_name"])
+def github_to_schema(repo):
     commit_ids = get_commit_ids(repo['id'])
     
     new_repo = {
@@ -72,8 +66,20 @@ for i, repo in enumerate(data):
         new_repo["source_full_name"] = repo['source']['full_name']
         new_repo["source_creator_id"] = repo['source']['owner']['id']
 
-    new_data.append(new_repo)
+    return new_repo
 
-print(json.dumps(new_data, indent=4))
+
+if __name__ == "__main__":
+    new_data = []
+
+    with open("more.json") as f:
+        data = json.load(f)
+
+    for i, repo in enumerate(data):
+        eprint(i, repo["full_name"])
+        new_repo = github_to_schema(repo)
+        new_data.append(new_repo)
+
+    print(json.dumps(new_data, indent=4))
 
 
