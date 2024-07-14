@@ -12,7 +12,7 @@ def generate_vis(scores):
     plt.ylabel('Count')
     plt.title('Quick-Similarity Scores')
 
-    plt.savefig('score_dist.png')
+    plt.savefig('score_dist.svg')
 
 
 with open("../../1_collection/full.json") as f:
