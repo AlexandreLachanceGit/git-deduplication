@@ -23,4 +23,4 @@ plt.xlabel('Forges')
 plt.ylabel('Number of Repos')
 plt.title('GitLab vs GitHub Repos')
 
-plt.savefig('forge_dist.png')
+plt.savefig('forge_dist.svg')
