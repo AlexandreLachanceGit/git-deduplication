@@ -7,7 +7,7 @@ async function fetchGitHubRepositories() {
 
 
     let allItems = [];
-    let dates = ["<2020-01-01", "2020-01-01..2022-01-01", ">2022-01-01"]
+    let dates = ["<2020-01-01", "2020-01-01..2021-01-01", "2021-01-01..2022-01-01", "2022-01-01..2023-01-01", ">2023-01-01"]
 
     for (const d of dates) {
         console.error("Starting " + d)

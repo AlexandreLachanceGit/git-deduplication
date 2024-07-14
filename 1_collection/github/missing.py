@@ -32,13 +32,13 @@ for repo_id in missing:
         eprint(f"Rate limit reached. Sleeping for {sleep_time} seconds.")
         time.sleep(sleep_time)
 
-    
-    repo_url = repo['clone_url']
+    if res.ok:
+        repo_url = repo['clone_url']
 
-    destination_path = f'./repos/{repo_id}'
-    os.system(f'git clone {repo_url} {destination_path}')
+        destination_path = f'./repos/{repo_id}'
+        os.system(f'git clone {repo_url} {destination_path}')
 
-    new_repos.append(github_to_schema(repo))
+        new_repos.append(github_to_schema(repo))
 
 with open('missing.json', mode='w') as f:
     json.dump(new_repos, f)
