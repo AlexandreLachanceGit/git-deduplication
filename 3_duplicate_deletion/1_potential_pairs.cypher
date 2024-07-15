@@ -1,4 +1,4 @@
 MATCH (potentialDuplicate)-->(sourceProject)
 RETURN COUNT(*)
 
-// 1685 results
+// 1680 results

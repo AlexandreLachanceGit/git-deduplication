@@ -1,3 +1,14 @@
 GitHub 2529 (+ 33 missing)
 GitLab 48 (+ 0 missing)
 
+1600 fork relations created
+71 git relations
+
+186384 pairs compared with quick-sim (29:41)
+9 relationships created
+
+225 same history duplicates
+
+374 potential pairs (1:54:39)
+57 duplicates
+

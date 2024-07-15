@@ -9,7 +9,7 @@ def generate_vis(scores):
     plt.ylabel('Count')
     plt.title('Similarity Scores')
 
-    plt.savefig('score_dist.png')
+    plt.savefig('score_dist.svg')
 
 scores = []
 
@@ -17,7 +17,7 @@ with open('scores.csv', newline='') as scoresFile:
     reader = csv.reader(scoresFile)
     for row in reader:
         scores.append(float(row[2]))
-        if row[2] > 0.75:
+        if float(row[2]) > 0.75:
             print(row[2])
 
 generate_vis(scores)
