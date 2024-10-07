@@ -78,7 +78,7 @@ def compare_and_write(pair):
     return id1, id2, score
 
 def compare_all():
-    with open("../3_reduced_potential_pairs.json", 'r') as potential_pairs_file:
+    with open("../3_reduced_potential_pairs.json", 'r', encoding='utf-8-sig') as potential_pairs_file:
         potential_pairs = json.load(potential_pairs_file)
 
     with open("scores.csv", mode='w', newline='') as scores_file:

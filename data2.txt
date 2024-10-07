@@ -1,0 +1,21 @@
+# Results
+
+## Start
+
+2610 repos
+
+## Graph
+
+1600 fork relationships / 1864 connected nodes
+71 git relationships / 1904 connected nodes
+9 similarity relationships / 1913 connected nodes
+
+## Duplicate Detection
+
+1680 potential pairs
+1412 same history duplicates
+256 pairs to fully compare / done in 22:02 / 115 duplicates identified with 0.75 threshold
+
+## Total Duplicates
+
+1527/2610 / 58.51%
